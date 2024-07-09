@@ -1,0 +1,37 @@
+R = int(input("Enter the number of rows:"))
+
+C = int(input("Enter the number of columns:"))
+ 
+b=1
+
+matrix = []
+b=1
+for i in range(R):          
+    row = []
+    for j in range(C):   
+        element = int(input(f"Enter the element {b} ({i},{j}): "))
+        b+=1
+        row.append(element)
+    matrix.append(row)
+
+print("\nInput Matrix:\n")
+for row in matrix:
+    for elem in row:
+        print(elem, end=" ")
+    print()
+
+n = R*C
+for i in range(n):
+        for j in range(0, n - i - 1):
+            
+            row1, col1 = divmod(j, C)
+            row2, col2 = divmod(j + 1, C)
+            
+            if matrix[row1][col1] > matrix[row2][col2]:
+                matrix[row1][col1], matrix[row2][col2] = matrix[row2][col2], matrix[row1][col1]
+        
+print("\nSorted Matrix:\n")
+for row in matrix:
+    for elem in row:
+        print(elem, end=" ")
+    print()

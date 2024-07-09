@@ -1,0 +1,25 @@
+l = list(map(int, input("Enter elements :").split()))
+
+n = len(l)
+
+r = int(input("No. Rows: "))
+c = int(input("No. Columns: "))
+
+if r*c==n:
+    matrix = []
+    index = 0
+    
+    for i in range(r):
+        row = []
+        for j in range(c):
+            row.append(l[index])
+            index += 1
+        matrix.append(row)
+    
+    for i in range(r):
+        for j in range(c):
+            print(matrix[i][j], end = " ")
+        print()
+else:
+    print("The dimension does not match the len of list")
+    
